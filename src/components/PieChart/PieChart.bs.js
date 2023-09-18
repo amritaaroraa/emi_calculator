@@ -36,7 +36,7 @@ function PieChart(Props) {
                             })(undefined, undefined, undefined, undefined, undefined, undefined, data), [
                         "uv",
                         undefined,
-                        undefined,
+                        "#82ca9d",
                         undefined,
                         undefined,
                         undefined,

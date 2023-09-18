@@ -10,7 +10,7 @@ import "./App.css";
 
 function App(Props) {
   var match = React.useState(function () {
-        return 100000.00;
+        return 1000000.00;
       });
   var setLoanAmt = match[1];
   var loanAmt = match[0];
@@ -20,35 +20,58 @@ function App(Props) {
   var setRateOfInterest = match$1[1];
   var rateOfInterest = match$1[0];
   var match$2 = React.useState(function () {
-        return 2.00;
+        return 5.00;
       });
   var setLoanTenure = match$2[1];
   var loanTenure = match$2[0];
   var match$3 = React.useState(function () {
         return 0.00;
       });
-  var setEmi = match$3[1];
+  var setInterestAmt = match$3[1];
+  var match$4 = React.useState(function () {
+        return 0.00;
+      });
+  var setEmi = match$4[1];
   var data = [
     {
-      name: "Page A",
-      uv: 4000,
-      pv: 2400,
-      amt: 2400,
+      name: "Principal Amt",
+      uv: 100000,
       color: "#0088FE"
     },
     {
-      name: "Page B",
-      uv: 3000,
-      pv: 1398,
-      amt: 2210,
+      name: "Interest Amt",
+      uv: 1000,
       color: "#00C49F"
     }
   ];
+  var match$5 = React.useState(function () {
+        return data;
+      });
+  var setChartData = match$5[1];
   var handleEmiChange = function (param) {
     var monthlyROI = rateOfInterest / 12.0 / 100.0;
     var monthlyTenure = loanTenure * 12.0;
     var rateOfInterestPow = Math.pow(1.0 + monthlyROI, monthlyTenure);
     var emiAmt = loanAmt * monthlyROI * rateOfInterestPow / (rateOfInterestPow - 1.0);
+    var intAmt = emiAmt * monthlyTenure - loanAmt;
+    var pieChartData = [
+      {
+        name: "Principal Amt",
+        uv: loanAmt | 0,
+        color: "#0088FE"
+      },
+      {
+        name: "Interest Amt",
+        uv: intAmt | 0,
+        color: "#00C49F"
+      }
+    ];
+    Curry._1(setChartData, (function (param) {
+            return pieChartData;
+          }));
+    Curry._1(setInterestAmt, (function (param) {
+            return intAmt;
+          }));
     Curry._1(setEmi, (function (param) {
             return emiAmt;
           }));
@@ -98,10 +121,26 @@ function App(Props) {
                   className: "card"
                 }, React.createElement("div", {
                       className: "container"
-                    }, React.createElement("span", undefined, String(match$3[0] | 0))), React.createElement("div", {
+                    }, React.createElement("span", {
+                          className: "left-column"
+                        }, "Monthly EMI "), React.createElement("span", {
+                          className: "right-column"
+                        }, String(match$4[0] | 0))), React.createElement("div", {
+                      className: "container"
+                    }, React.createElement("span", {
+                          className: "left-column"
+                        }, "Principal Amount "), React.createElement("span", {
+                          className: "right-column"
+                        }, String(loanAmt | 0))), React.createElement("div", {
+                      className: "container"
+                    }, React.createElement("span", {
+                          className: "left-column"
+                        }, "Interest Amount "), React.createElement("span", {
+                          className: "right-column"
+                        }, String(match$3[0] | 0))), React.createElement("div", {
                       className: "display-pie-chart"
                     }, React.createElement(PieChart.make, {
-                          data: data
+                          data: match$5[0]
                         }))));
 }
 

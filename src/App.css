@@ -25,5 +25,18 @@
 }
 
 .container {
-  padding: 2px 16px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  padding: 10px 20px;
+}
+
+.left-column{
+  flex: 1;
+  text-align: left;
+}
+
+.right-column{
+  flex: 1; 
+  text-align: right;
 }

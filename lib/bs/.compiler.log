@@ -1,4 +1,4 @@
-#Start(1694674178636)
+#Start(1695029520881)
 
   Warning number 3
   /Users/amritaarora/Desktop/emi_calculator/src/index.res:4:6-11
@@ -12,4 +12,4 @@
   deprecated: ReactDOM.render
   ReactDOM.render is no longer supported in React 18. Use ReactDOM.Client.createRoot instead.
 
-#Done(1694674178768)
+#Done(1695029520990)
