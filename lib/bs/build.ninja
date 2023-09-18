@@ -1,0 +1,27 @@
+rescript = 1
+g_finger := /Users/amritaarora/Desktop/emi_calculator/node_modules/@rescript/react/lib/ocaml/install.stamp
+g_finger := /Users/amritaarora/Desktop/emi_calculator/node_modules/@float-capital/rescript-recharts/lib/ocaml/install.stamp
+rule astj
+  command = /Users/amritaarora/Desktop/emi_calculator/node_modules/rescript/darwinarm64/bsc.exe  -warn-error +101 -bs-v 10.1.4 -bs-jsx 3  -absname -bs-ast -o $out $i
+o src/App.ast : astj ../../src/App.res
+rule deps
+  command = /Users/amritaarora/Desktop/emi_calculator/node_modules/rescript/darwinarm64/bsb_helper.exe -hash 2e5bf46ae5f58b3964d27ca8f69ae4b8 $in
+  restat = 1
+o src/App.d : deps src/App.ast
+rule mij
+  command = /Users/amritaarora/Desktop/emi_calculator/node_modules/rescript/darwinarm64/bsc.exe -I src/components/SliderInputComponent -I src/components/PieChart -I src/components -I src/data -I src -I /Users/amritaarora/Desktop/emi_calculator/node_modules/@rescript/react/lib/ocaml -I /Users/amritaarora/Desktop/emi_calculator/node_modules/@float-capital/rescript-recharts/lib/ocaml   -warn-error +101 -bs-package-name template -bs-package-output es6:$in_d:.bs.js -bs-v $g_finger $i
+  dyndep = 1
+  restat = 1
+o src/App.cmj src/App.cmi ../../src/App.bs.js : mij src/App.ast
+o src/index.ast : astj ../../src/index.res
+o src/index.d : deps src/index.ast
+o src/index.cmj src/index.cmi ../../src/index.bs.js : mij src/index.ast
+o src/data/ChartData.ast : astj ../../src/data/ChartData.res
+o src/data/ChartData.d : deps src/data/ChartData.ast
+o src/data/ChartData.cmj src/data/ChartData.cmi ../../src/data/ChartData.bs.js : mij src/data/ChartData.ast
+o src/components/PieChart/PieChart.ast : astj ../../src/components/PieChart/PieChart.res
+o src/components/PieChart/PieChart.d : deps src/components/PieChart/PieChart.ast
+o src/components/PieChart/PieChart.cmj src/components/PieChart/PieChart.cmi ../../src/components/PieChart/PieChart.bs.js : mij src/components/PieChart/PieChart.ast
+o src/components/SliderInputComponent/SliderInput.ast : astj ../../src/components/SliderInputComponent/SliderInput.res
+o src/components/SliderInputComponent/SliderInput.d : deps src/components/SliderInputComponent/SliderInput.ast
+o src/components/SliderInputComponent/SliderInput.cmj src/components/SliderInputComponent/SliderInput.cmi ../../src/components/SliderInputComponent/SliderInput.bs.js : mij src/components/SliderInputComponent/SliderInput.ast

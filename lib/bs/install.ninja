@@ -1,0 +1,26 @@
+rescript = 1
+rule cp
+  command = cp $i $out
+rule touch
+ command = touch $out
+o App.cmi : cp ../bs/src/App.cmi
+o App.cmj : cp ../bs/src/App.cmj
+o App.cmt : cp ../bs/src/App.cmt
+o App.res : cp ../../src/App.res
+o index.cmi : cp ../bs/src/index.cmi
+o index.cmj : cp ../bs/src/index.cmj
+o index.cmt : cp ../bs/src/index.cmt
+o index.res : cp ../../src/index.res
+o ChartData.cmi : cp ../bs/src/data/ChartData.cmi
+o ChartData.cmj : cp ../bs/src/data/ChartData.cmj
+o ChartData.cmt : cp ../bs/src/data/ChartData.cmt
+o ChartData.res : cp ../../src/data/ChartData.res
+o PieChart.cmi : cp ../bs/src/components/PieChart/PieChart.cmi
+o PieChart.cmj : cp ../bs/src/components/PieChart/PieChart.cmj
+o PieChart.cmt : cp ../bs/src/components/PieChart/PieChart.cmt
+o PieChart.res : cp ../../src/components/PieChart/PieChart.res
+o SliderInput.cmi : cp ../bs/src/components/SliderInputComponent/SliderInput.cmi
+o SliderInput.cmj : cp ../bs/src/components/SliderInputComponent/SliderInput.cmj
+o SliderInput.cmt : cp ../bs/src/components/SliderInputComponent/SliderInput.cmt
+o SliderInput.res : cp ../../src/components/SliderInputComponent/SliderInput.res
+build install.stamp : touch App.cmi App.cmj index.cmi index.cmj ChartData.cmi ChartData.cmj PieChart.cmi PieChart.cmj SliderInput.cmi SliderInput.cmj 

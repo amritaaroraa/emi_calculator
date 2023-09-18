@@ -1,0 +1,15 @@
+#Start(1694674178636)
+
+  Warning number 3
+  /Users/amritaarora/Desktop/emi_calculator/src/index.res:4:6-11
+
+  2 │ 
+  3 │ let rootQuery = ReactDOM.querySelector("#root")
+  4 │ let {render, querySelector} = module(ReactDOM)
+  5 │ 
+  6 │ switch rootQuery {
+
+  deprecated: ReactDOM.render
+  ReactDOM.render is no longer supported in React 18. Use ReactDOM.Client.createRoot instead.
+
+#Done(1694674178768)
