@@ -3,7 +3,7 @@ open ChartData
 
 @react.component
 let make = () => {
-  let (loanAmt, setLoanAmt) = React.useState(_ => 1000000.00)
+  let (loanAmt, setLoanAmt) = React.useState(_ => 100000.00)
   let (rateOfInterest, setRateOfInterest) = React.useState(_ => 6.00)
   let (loanTenure, setLoanTenure) = React.useState(_ => 5.00)
   let (interestAmt, setInterestAmt) = React.useState(_ => 0.00)
